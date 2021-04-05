@@ -1,0 +1,46 @@
+VulnScanner: Nikto
+
+Execute o Niktode forma simpls com as opções –h (host) e –o (Output):
+
+niktop–h www.alvo.com –o report.html
+
+Veja algumas opções interessantes:-noSSL–Não efetua varreduras usando SSL (HTTPS)
+-id – Efetua varreduras em páginas com credenciais. Ex: nikto–id usuario:senha
+-ssl – Força o uso da porta SSL
+-timeout – Seta a espera em segundos caso o servidor demora à responder (padrão 2 segundos)
+-update – Efetua a atualização da base de dados do Nikto
+-version – Apresenta a atual versão utilizada
+-port – Você pode setaruma porta diferente (Padrão 80)
+-userproxy – Processo de evasão do Nikto. Ex: nikto–useproxyhttp://10.0.0.1:8080
+-findonly – Faz uma pequena varredura sobre o ambiente mas não procura por falhas. Verifica as portas e busca por headersapenas.
+-format– Junto com a opção –o, gera relatório em diversos formatos (csv, txt, htmle xml)
+-mutate– Especifica o método de varredura.
+1 –Testa todos os arquivos no diretório principal
+2 –Procura por arquivos que contém senhas
+3 –Enumera usuários do apache (/~user)
+4 –Enumera usuários via CGIWRAP (/cgi-bin/cgi-wrap/~user)
+5 –Efetua bruteforce em busca de Subdominiose Hostname
+6 –Efetua bruteforce em busca de diretórios e subdiretórios
+
+-mudate- options–Especifica opções da função mutate, por exemplo arquivo para bruteforce: -mudate5 –mutate-options/bruteforce.txt
+-plugins– Seleciona um pluginespecífico (para ver a lista de plug-ins, use a opção –plugins-list)
+-pause – Seta o intervalo de tempo entre cara teste de vulnerabilidade
+-vhost– Especifica o Host header ao alvo, muito utilizado em servidores que possuem diversos sites
+-tuning– Este ajuste vai controlar que tipo de teste o Niktoirá realizar.
+
+Por padrão, apenas testes de vulnerabilidades serão executados, porém, você pode alterar esse parâmetro para que ele efetue o ataque juntamente com o teste.
+
+0 –File Upload
+1 –Busca por arquivos interessantes
+2 –Erros de configuração
+3 –Divulgação de informações
+4 –Injection(XSS, Script e HTML)
+5 –Recuperação de arquivos remotos (apenas na raíz)
+6 –DenialofService
+7 –Remote file retrieval(em todo servidor)
+8 –Execução de Comando / Shell remota
+9 –SQL Injection
+a –Bypassde autenticação
+b –Identificação de Software
+c –Inclusão de Código Remoto
+x –Opções reversas do Tuning(Inclui todos, exceto especificado aqui)
